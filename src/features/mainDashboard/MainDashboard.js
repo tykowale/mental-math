@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Grid } from "semantic-ui-react";
-import Counter from "./Counter/Counter";
-import MathProblem from "./MathProblem/MathProblem";
+import Counter from "./Counter";
+import MathProblem from "./MathProblem";
 import MathForm from "./MathProblem/MathForm";
-import Answer from "./Answer/Answer";
+import Answer from "./Answer";
 
 class MainDashboard extends Component {
   state = {
