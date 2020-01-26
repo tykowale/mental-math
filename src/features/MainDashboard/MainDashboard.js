@@ -8,28 +8,51 @@ class MainDashboard extends Component {
     value: "",
     correct: false,
     checked: false,
+    actualAnswer: "",
+    streak: 0,
+  };
+
+  getRandomNumber = () => {
+    return Math.floor(Math.random() * 1000) + 10;
   };
 
   handleChange = (e, { value }) => {
     this.setState({ value: value });
   };
 
+  updateStreak = (correct) => {
+    const { streak } = this.state;
+    if (correct) {
+      this.setState({ streak: streak + 1 });
+    } else {
+      this.setState({ streak: 0 });
+    }
+  };
+
   checkInput = () => {
     const { num1, num2, value } = this.state;
+    const inputAnswer = parseInt(value);
+    const actualAnswer = num1 + num2;
+
     this.setState({
+      num1: this.getRandomNumber(),
+      num2: this.getRandomNumber(),
       checked: true,
-      correct: num1 + num2 === parseInt(value),
+      correct: actualAnswer === inputAnswer,
+      actualAnswer: actualAnswer,
+      value: ""
     });
 
-    console.log(num1 + num2 === parseInt(value));
+    this.updateStreak(actualAnswer === inputAnswer);
   };
 
   render() {
-    const { checked, correct, num1, num2, value } = this.state;
+    const { actualAnswer, checked, correct, num1, num2, value, streak } = this.state;
 
     return (
       <Grid centered>
         <Grid.Column width={6}>
+          <Header as="h1"> Current Streak - {streak} </Header>
 
           <Header as="h1">{num1}</Header>
           <Header as="h2">+</Header>
@@ -49,7 +72,7 @@ class MainDashboard extends Component {
             </Form.Group>
           </Form>
           {checked && (
-            <h1> {correct ? "correct" : "wrong"}</h1>
+            <h1> {correct ? "correct" : "wrong actual answer is - " + actualAnswer}</h1>
           )}
         </Grid.Column>
       </Grid>
