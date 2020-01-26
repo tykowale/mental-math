@@ -1,11 +1,16 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import MainDashboard from "../../features/MainDashboard/MainDashboard";
+import { Container } from "semantic-ui-react";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Mental Math</h1>
-    </div>
+    <>
+      <Container className="main">
+        <h1> Mental Math</h1>
+        <MainDashboard />
+      </Container>
+    </>
   );
 }
 
