@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Divider, Form, Grid, Header } from "semantic-ui-react";
+import { Form, Grid } from "semantic-ui-react";
+import Counter from "../Counter/Counter";
+import MathProblem from "../MathProblem/MathProblem";
 
 class MainDashboard extends Component {
   state = {
@@ -40,7 +42,7 @@ class MainDashboard extends Component {
       checked: true,
       correct: actualAnswer === inputAnswer,
       actualAnswer: actualAnswer,
-      value: ""
+      value: "",
     });
 
     this.updateStreak(actualAnswer === inputAnswer);
@@ -52,14 +54,8 @@ class MainDashboard extends Component {
     return (
       <Grid centered>
         <Grid.Column width={6}>
-          <Header as="h1"> Current Streak - {streak} </Header>
-
-          <Header as="h1">{num1}</Header>
-          <Header as="h2">+</Header>
-          <Header as="h1">{num2}</Header>
-
-          <Divider horizontal> Equals </Divider>
-
+          <Counter streak={streak} />
+          <MathProblem num1={num1} num2={num2} />
           <Form onSubmit={this.checkInput}>
             <Form.Group>
               <Form.Input
