@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Grid } from "semantic-ui-react";
-import Counter from "../Counter/Counter";
-import MathProblem from "../MathProblem/MathProblem";
-import MathForm from "../MathProblem/MathForm";
-import Answer from "../Answer/Answer";
+import Counter from "./Counter/Counter";
+import MathProblem from "./MathProblem/MathProblem";
+import MathForm from "./MathProblem/MathForm";
+import Answer from "./Answer/Answer";
 
 class MainDashboard extends Component {
   state = {
@@ -33,6 +33,7 @@ class MainDashboard extends Component {
 
   updateStreak = (correct) => {
     const { streak } = this.state;
+
     if (correct) {
       this.setState({ streak: streak + 1 });
     } else {

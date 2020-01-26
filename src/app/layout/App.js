@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import MainDashboard from "../../features/MainDashboard/MainDashboard";
+import MainDashboard from "../../features/mainDashboard/MainDashboard";
 import { Container } from "semantic-ui-react";
 
 function App() {
