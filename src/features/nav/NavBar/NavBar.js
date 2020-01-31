@@ -6,7 +6,6 @@ import { openModal } from "../../modals/modalActions";
 
 class NavBar extends Component {
   handleSignIn = () => {
-    console.log(this.props);
     this.props.openModal("LoginModal");
   };
 
